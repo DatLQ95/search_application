@@ -1,0 +1,34 @@
+version: "3.6"
+
+services:
+  search-server:
+    image: luongquocdat01091995/media-streaming-server:server
+    ports:
+      - "8888:8080"
+      - "1935:1935"
+    deploy: 
+      placement: 
+        constraints:
+          - node.labels.node_number==4
+  # media-source:
+  #   image: luongquocdat01091995/media-streaming-server:source
+  search-client: 
+    image: luongquocdat01091995/media-streaming-server:client
+    environment: 
+        - SERVER_IP=192.168.2.93
+    deploy: 
+      placement: 
+        constraints:
+          - node.labels.node_number==3
+  # media-client: 
+  #   image: luongquocdat01091995/media-streaming-server:client
+  #   environment: 
+  #       - SERVER_IP=131.155.35.54
+  # media-client: 
+  #   image: luongquocdat01091995/media-streaming-server:client
+  #   environment: 
+  #       - SERVER_IP=131.155.35.54
+  # media-client: 
+  #   image: luongquocdat01091995/media-streaming-server:client
+  #   environment: 
+  #       - SERVER_IP=131.155.35.54

@@ -1,0 +1,9 @@
+#Read Index Node's IP
+IP=$1
+
+SCALE=$2 
+RAMP_UP=$3 
+RAMP_DOWN=$4 
+STEADY_STATE=$5
+
+./run_client.sh $IP $SCALE $RAMP_UP $RAMP_DOWN $STEADY_STATE

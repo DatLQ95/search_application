@@ -2,10 +2,9 @@ version: "3.6"
 
 services:
   search-server:
-    image: luongquocdat01091995/media-streaming-server:server
+    image: cloudsuite/web-search:server
     ports:
-      - "8888:8080"
-      - "1935:1935"
+      - "8983:8983"
     deploy: 
       placement: 
         constraints:
@@ -13,7 +12,7 @@ services:
   # media-source:
   #   image: luongquocdat01091995/media-streaming-server:source
   search-client: 
-    image: luongquocdat01091995/media-streaming-server:client
+    image: luongquocdat01091995/search-server:client
     environment: 
         - SERVER_IP=192.168.2.93
     deploy: 

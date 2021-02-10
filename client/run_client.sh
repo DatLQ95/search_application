@@ -1,17 +1,16 @@
 #!/bin/bash
 
-#Read Index Node's IP
-export IP=$1
+echo $IP
 
 #Read local IP
-export HOST_IP=$(echo `ifconfig eth0 2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://'`) \
-  && export AGENTS=$HOST_IP:$NUM_AGENTS
+echo $HOST_IP
+echo $AGENTS
 
 #Read client parameters
-export SCALE=$2 \
-  && export RAMP_UP=$3 \
-  && export RAMP_DOWN=$4 \
-  && export STEADY_STATE=$5
+echo $SCALE
+echo $RAMP_UP
+echo $RAMP_DOWN
+echo $STEADY_STATE
 
 #PREPARE
 $FABAN_HOME/master/bin/startup.sh

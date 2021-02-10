@@ -40,7 +40,7 @@ jobs:
           context: ./client/
           file: ./client/Dockerfile
           push: true
-          tags: luongquocdat01091995/search-server:server
+          tags: luongquocdat01091995/search-server:client
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

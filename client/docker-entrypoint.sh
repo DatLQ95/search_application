@@ -1,7 +1,10 @@
 #!/bin/bash
 
+
+#PREPARE
+$FABAN_HOME/master/bin/startup.sh
+
 #Read Index Node's IP
-export IP=$1
 
 arrivalRate=(1280 800 640 480 320 160 160 320 2720 5920 9280 12480 13900 15520 15840 16800 16640 13920 11200 9120 6400 4480 2880 1600)
 
@@ -12,21 +15,23 @@ ELAPSED_TIME=$(($SECONDS - $START_TIME))
 #Read local IP
 export HOST_IP=$(echo `ifconfig eth0 2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://'`) \
   && export AGENTS=$HOST_IP:$NUM_AGENTS
-
 export RAMP_UP=90
 export RAMP_DOWN=60
 export STEADY_STATE=60
 
-for i in `seq 0 6`; 
-do
-    # scale=$(echo "0.75 + $[($RANDOM % 100)]/200" | bc -l)
-    # echo $scale
-    for rate in ${arrivalRate[@]}; 
-    do
-		export SCALE=$rate
-        ./run_client.sh
-    done
-done
+export SCALE=15000
+./run_client.sh
+
+# for i in `seq 0 6`; 
+# do
+#     # scale=$(echo "0.75 + $[($RANDOM % 100)]/200" | bc -l)
+#     # echo $scale
+#     for rate in ${arrivalRate[@]}; 
+#     do
+# 		  export SCALE=$rate
+#       ./run_client.sh
+#     done
+# done
 
 
 

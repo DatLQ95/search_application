@@ -12,8 +12,7 @@ echo $RAMP_UP
 echo $RAMP_DOWN
 echo $STEADY_STATE
 
-#PREPARE
-$FABAN_HOME/master/bin/startup.sh
+
 
 #RUN
 cd $FABAN_HOME/search \

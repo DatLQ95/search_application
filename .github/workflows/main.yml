@@ -14,7 +14,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build_server:
+  build_client:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -37,10 +37,10 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ./client/
-          file: ./client/Dockerfile
+          context: ./python_client/
+          file: ./python_client/Dockerfile
           push: true
-          tags: luongquocdat01091995/search-server:client
+          tags: luongquocdat01091995/search-server:python_client
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

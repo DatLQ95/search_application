@@ -1,0 +1,12 @@
+version: "3.6"
+
+services:
+  search-client: 
+    image: luongquocdat01091995/search-server:python_client
+    environment: 
+        - SERVER_IP=192.168.2.83
+        - SERVER_PORT=8983
+  search-server:
+    image: solr:8
+    ports:
+      - 8983:8983

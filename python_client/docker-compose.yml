@@ -6,8 +6,17 @@ services:
     environment: 
         - SERVER_IP=192.168.2.83
         - SERVER_PORT=8983
+    restart: always
+    deploy: 
+      placement: 
+        constraints:
+          - node.labels.node_number==4
   search-server:
     image: solr:8
     ports:
       - 8983:8983
     command: solr-demo
+    deploy: 
+      placement: 
+        constraints:
+          - node.labels.node_number==3

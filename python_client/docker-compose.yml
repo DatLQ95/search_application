@@ -6,7 +6,7 @@ services:
     environment: 
         - SERVER_IP=192.168.2.83
         - SERVER_PORT=8983
-    restart: always
+    restart: on-failure
     deploy: 
       placement: 
         constraints:
